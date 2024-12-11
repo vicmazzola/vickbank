@@ -1,29 +1,27 @@
 export default function isCPF(field) {
-    const cpf = field.value.replace(/\.|-/g, "");
+    const cpf = field.value.replace(/\\.|-/g, "");
     if (validateRepeatedNumber(cpf) || validateFirstDigit(cpf) || validateSecondDigit(cpf)) {
-        console.log("This CPF doesn't exist")
+        field.setCustomValidity("This CPF is not valid");
     } else {
-        console.log("This CPF exists")
+        field.setCustomValidity("");
     }
-
-    console.log(validateRepeatedNumber(cpf));
 }
 
 function validateRepeatedNumber(cpf) {
     const repeatedNumbers = [
-        '00000000000',
-        '11111111111',
-        '22222222222',
-        '33333333333',
-        '44444444444',
-        '55555555555',
-        '66666666666',
-        '77777777777',
-        '88888888888',
-        '99999999999'
-    ]
+        "00000000000",
+        "11111111111",
+        "22222222222",
+        "33333333333",
+        "44444444444",
+        "55555555555",
+        "66666666666",
+        "77777777777",
+        "88888888888",
+        "99999999999"
+    ];
 
-    return repeatedNumbers.includes(cpf)
+    return repeatedNumbers.includes(cpf);
 }
 
 function validateFirstDigit(cpf) {
@@ -32,7 +30,7 @@ function validateFirstDigit(cpf) {
 
     for (let length = 0; length < 9; length++) {
         sum += cpf[length] * multiplier;
-        multiplier--
+        multiplier--;
     }
 
     sum = (sum * 10) % 11;
@@ -50,7 +48,7 @@ function validateSecondDigit(cpf) {
 
     for (let length = 0; length < 10; length++) {
         sum += cpf[length] * multiplier;
-        multiplier--
+        multiplier--;
     }
 
     sum = (sum * 10) % 11;
