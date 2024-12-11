@@ -1,6 +1,10 @@
 export default function isCPF(field) {
     const cpf = field.value.replace(/\.|-/g, "");
-    validateRepeatedNumber(cpf);
+    if (validateRepeatedNumber(cpf) || validateFirstDigit(cpf) || validateSecondDigit(cpf)) {
+        console.log("This cpf doenst exist")
+    } else {
+        console.log("This cpf exist")
+    }
 
     console.log(validateRepeatedNumber(cpf));
 }
@@ -20,4 +24,40 @@ function validateRepeatedNumber(cpf) {
     ]
 
     return repeatedNumbers.includes(cpf)
+}
+
+function validateFirstDigit(cpf) {
+    let sum = 0;
+    let multiplier = 10;
+
+    for (let length = 0; length < 9; length++) {
+        sum += cpf[length] * multiplier;
+        multiplier--
+    }
+
+    sum = (sum * 10) % 11;
+
+    if (sum == 10 || sum == 11) {
+        sum = 0;
+    }
+
+    return sum != cpf[9];
+}
+
+function validateSecondDigit(cpf) {
+    let sum = 0;
+    let multiplier = 11;
+
+    for (let length = 0; length < 10; length++) {
+        sum += cpf[length] * multiplier;
+        multiplier--
+    }
+
+    sum = (sum * 10) % 11;
+
+    if (sum == 10 || sum == 11) {
+        sum = 0;
+    }
+
+    return sum != cpf[10];
 }
