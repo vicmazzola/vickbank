@@ -35,5 +35,5 @@ btnSendPhoto.addEventListener('click', () => {
 
     localStorage.setItem('registration', JSON.stringify(parsedData));
 
-    window.location.href = '../pages/open-account-form-3.html';
+    window.location.href = '../pages/open-account-form3.html';
 });

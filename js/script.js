@@ -17,7 +17,7 @@ form.addEventListener("submit", (e) => {
 
     localStorage.setItem("registration", JSON.stringify(responsesList));
 
-    window.location.href = "./open-account-form-2.html";
+    window.location.href = "./open-account-form2.html";
 });
 
 formFields.forEach((field) => {
