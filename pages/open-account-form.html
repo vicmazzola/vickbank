@@ -58,38 +58,52 @@
                 <h2 class="form__title-text">Fill in the fields below to create your checking account!</h2>
             </div>
 
-            <fieldset class="form__field">
-                <label class="field__label" for="name">Name</label>
-                <input name="name" id="name" class="field__input" minlength="3" />
-                <span class="error-message"></span>
-            </fieldset>
-            
-            <fieldset class="form__field">
-                <label class="field__label" for="email">Email</label>
-                <input name="email" id="email" class="field__input" minlength="4" />
-                <span class="error-message"></span>
-            </fieldset>
-            
-            <fieldset class="form__field">
-                <label class="field__label" for="rg">RG</label>
-                <input name="rg" id="rg" class="field__input field__input--small" minlength="3" />
-                <span class="error-message"></span>
-            </fieldset>
-            
-            <fieldset class="form__field">
-                <label class="field__label" for="cpf">CPF (numbers only)</label>
-                <input name="cpf" id="cpf" class="field__input field__input--small" minlength="11" maxlength="14" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" />
-                <span class="error-message"></span>
-            </fieldset>
-            
-            <fieldset class="form__field">
-                <label class="field__label" for="birthday">Date of birth</label>
-                <input name="birthday" id="birthday" class="field__input field__input--small" minlength="10" />
-                <span class="error-message"></span>
-            </fieldset>
-            
+            <form class="main__form" data-form>
+                <fieldset class="form__field">
+                    <label class="field__label" for="name">Name</label>
+                    <input name="name" id="name" class="field__input" type="text" minlength="3" required />
+                    <span class="error-message"></span>
+                </fieldset>
 
+                <fieldset class="form__field">
+                    <label class="field__label" for="email">Email</label>
+                    <input name="email" id="email" class="field__input" type="email" minlength="4" required />
+                    <span class="error-message"></span>
+                </fieldset>
+
+                <fieldset class="form__field">
+                    <label class="field__label" for="rg">RG</label>
+                    <input name="rg" id="rg" class="field__input field__input--small" type="text" required />
+                    <span class="error-message"></span>
+                </fieldset>
+
+                <fieldset class="form__field">
+                    <label class="field__label" for="cpf">CPF (numbers only)</label>
+                    <input name="cpf" id="cpf" class="field__input field__input--small" required type="text"
+                        minlength="11" maxlength="14" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" />
+                    <span class="error-message"></span>
+                </fieldset>
+
+                <fieldset class="form__field">
+                    <label class="field__label" for="birthday">Date of birth</label>
+                    <input name="birthday" id="birthday" class="field__input field__input--small" type="date"
+                        required />
+                    <span class="error-message"></span>
+                </fieldset>
+
+                <fieldset class="form__terms">
+                    <input name="terms" class="terms__input" type="checkbox" required>
+                    <p class="terms__text">I have read and agree to the terms outlined in the bank's Privacy Policy.</p>
+                    <span class="error-message"></span>
+                </fieldset>
+
+                <div>
+                    <input value="Next" class="form__button" id="send" data-button-send type="submit">
+                    <span class="error-message"></span>
+                </div>
+            </form>
         </section>
+
 
     </main>
 

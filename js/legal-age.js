@@ -1,13 +1,15 @@
 export default function isLegalAge(field) {
-    const birthDay = new Date(campo.value);
-    validateAge(birthDay);
-
-    console.log(validateAge(birthDay));
+    const birthDay = new Date(field.value);
+    if (!validateAge(birthDay)) {
+        field.setCustomValidity("The user is not of legal age.");
+    } else {
+        field.setCustomValidity("");
+    }
 }
 
-function validateAge(data) {
+function validateAge(date) {
     const actualDate = new Date();
-    const dateLegalAge = new Date(data.getUTCFullYear() + 18, data.getUTCMonth(), data.getUTCDate());
+    const dateLegalAge = new Date(date.getUTCFullYear() + 18, date.getUTCMonth(), date.getUTCDate());
 
     return actualDate >= dateLegalAge;
 }
