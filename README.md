@@ -62,7 +62,6 @@ See the application in action at: [VickBank Demo](https://vickbank.vercel.app/)
 └── README.md                 # Project documentation
 ```
 
-
-
-
+## 🚀 Deployment
+The project was deployed using **Vercel**, ensuring fast and reliable hosting.
 
